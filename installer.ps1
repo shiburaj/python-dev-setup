@@ -23,7 +23,7 @@ function Is-Installed {
 if (-not (Is-Installed "Python")) {
     Write-Host "Installing Python..." -ForegroundColor Yellow
     Start-Process `
-        "$InstallerDir\python-3.12.1-amd64.exe" `
+        "$InstallerDir\python-3.14.2-amd64.exe" `
         -ArgumentList "/quiet InstallAllUsers=1 PrependPath=1 Include_test=0" `
         -Wait
 } else {
@@ -36,7 +36,7 @@ if (-not (Is-Installed "Python")) {
 if (-not (Is-Installed "Git")) {
     Write-Host "Installing Git..." -ForegroundColor Yellow
     Start-Process `
-        "$InstallerDir\Git-2.44.0-64-bit.exe" `
+        "$InstallerDir\Git-2.52.0-64-bit.exe" `
         -ArgumentList "/VERYSILENT /NORESTART" `
         -Wait
 } else {
@@ -49,7 +49,7 @@ if (-not (Is-Installed "Git")) {
 if (-not (Is-Installed "Microsoft Visual Studio Code")) {
     Write-Host "Installing VS Code..." -ForegroundColor Yellow
     Start-Process `
-        "$InstallerDir\VSCodeSetup-x64.exe" `
+        "$InstallerDir\VSCodeSetup-x64-1.107.1.exe" `
         -ArgumentList "/verysilent /mergetasks=!runcode" `
         -Wait
 } else {
