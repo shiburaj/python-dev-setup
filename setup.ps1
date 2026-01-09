@@ -108,6 +108,7 @@ Write-Host "`nRemoving existing installations..." -ForegroundColor Cyan
 Uninstall-IfInstalled "python"
 Uninstall-IfInstalled "python3"
 Uninstall-IfInstalled "vscode"
+Uninstall-IfInstalled "vscode.install"
 Uninstall-IfInstalled "visualstudiocode"
 Uninstall-IfInstalled "git"
 
@@ -143,26 +144,26 @@ choco install git -y --source $CHOCOSOURCE
 # Install VS Code
 # ----------------------------
 Write-Host "`nInstalling VS Code..." -ForegroundColor Cyan
-choco install vscode -y --source $CHOCOSOURCE
+choco install vscode.install -y --source $CHOCOSOURCE
 
 # ----------------------------
 # Install VS Code Extensions
 # ----------------------------
-Write-Host "`nInstalling VS Code extensions..." -ForegroundColor Cyan
+#Write-Host "`nInstalling VS Code extensions..." -ForegroundColor Cyan
 
-$codeCmd = "C:\Program Files\Microsoft VS Code\bin\code.cmd"
-$extensions = @(
-    "ms-python.python",
-    "ms-python.vscode-pylance",
-    "ms-toolsai.jupyter",
-    "ms-vscode.vscode-git",
-    "ms-python.black-formatter",
-    "ms-python.flake8"
-)
+#$codeCmd = "C:\Program Files\Microsoft VS Code\Code.exe"
+# $extensions = @(
+    # "ms-python.python",
+    # "ms-python.vscode-pylance",
+    # "ms-toolsai.jupyter",
+    # "ms-vscode.vscode-git",
+    # "ms-python.black-formatter",
+    # "ms-python.flake8"
+# )
 
-foreach ($ext in $extensions) {
-    & $codeCmd --install-extension $ext --force
-}
+# foreach ($ext in $extensions) {
+    # & $codeCmd --install-extension $ext --force
+# }
 
 # ----------------------------
 # Verification
@@ -175,3 +176,11 @@ code --version
 
 Write-Host "`nSUCCESS: Setup completed in $MODE mode." -ForegroundColor Green
 Write-Host "Restart the system before lab use." -ForegroundColor Yellow
+
+Write-Host "Open CMD and Run below commands to Install Extensions" -ForegroundColor Yellow
+
+Write-Host "code --install-extension ms-python.python ^" -ForegroundColor Yellow
+Write-Host "code --install-extension ms-python.vscode-pylance ^" -ForegroundColor Yellow
+Write-Host "code --install-extension ms-toolsai.jupyter ^" -ForegroundColor Yellow
+Write-Host "code --install-extension ms-python.black-formatter ^" -ForegroundColor Yellow
+Write-Host "code --install-extension ms-python.flake8" -ForegroundColor Yellow
